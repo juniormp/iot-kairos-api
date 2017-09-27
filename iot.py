@@ -9,16 +9,15 @@ from gpiozero import MotionSensor
 
 pir = MotionSensor(4)
 camera = PiCamera()
+camera.resolution = (250, 250)
 
 def take_picture():
     camera.start_preview()
     sleep(1)
     name = '/home/pi/Desktop/%s.jpg' % datetime.datetime.now()
     camera.capture(name)
-    file = open(name, 'rb')
-    print(file.read())
     camera.stop_preview()
-    return path_image
+    return name
 
 def encode_image(image_path):
     image = open(image_path, 'rb')
@@ -35,6 +34,6 @@ def send_image(image):
 while True:
     pir.wait_for_motion()
     path_image = take_picture()
-    send_image(path_image)
+    encoded = encode_image(path_image)
+    send_image(encoded)
     pir.wait_for_no_motion()
-
