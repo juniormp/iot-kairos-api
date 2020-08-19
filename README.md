@@ -142,3 +142,64 @@ In this way the application works as if it were consulting the real service and 
 Responses were mocked for each type of scenario so that the interest rate matches the income that the API provides.
 
 These scenarios are in **OpenAccountFeatureTest**.
+
+## Project Setup
+
+### Pre-requisites
+
+* [Docker][]
+* [Docker Compose][]
+
+[Docker]: https://docs.docker.com/install/ "About Docker CE"
+[Docker Compose]: https://docs.docker.com/compose/install/#install-compose "Install Docker Compose"
+
+You must have the docker-compose version equal or superior to 3.7.
+
+[Updating docker compose][]
+
+[Updating docker compose]: https://linuxize.com/post/how-to-install-and-use-docker-compose-on-ubuntu-18-04/
+
+###  Using Docker
+
+Build the project with the command:
+```cmd 
+docker-compose build
+```
+
+Install dependencies:
+```cmd 
+docker run --rm -v $(pwd):/app composer update
+```
+
+Run the project with the command:
+```cmd 
+docker-compose up -d
+```
+
+### Executing tests and lint
+
+Run the tests
+```cmd 
+docker-compose exec chip vendor/bin/phpunit
+```
+
+or 
+
+
+```cmd 
+composer test
+```
+
+
+Run lint
+
+```cmd 
+composer lint
+```
+
+Run tests and lint
+
+```cmd 
+composer complete
+```
+
