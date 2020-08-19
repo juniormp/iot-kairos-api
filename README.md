@@ -74,7 +74,7 @@ Some of the Design Patterns implemented in this layer are:
 This is an overview of the project and the way it was built, so that easy and lasting maintenance is possible, as well as the abstraction of the Business Domain in the form of software so that the work on it is of the highest possible quality.
 
 
-## Use Cases (Behaviors)and Tests
+## Use Cases (Behaviors) and Tests
 
 
 The possible behaviors that a client can initiate when using our application are:
@@ -89,7 +89,7 @@ The possible behaviors that a client can initiate when using our application are
 
 * Close Payouts: Performs the calculation of the payout of all users of the application.
 
-The tests for these behaviors are in tests/Feature.
+The tests for these behaviors are in **tests/Feature**.
 
 Each test class is responsible for testing the possible success or exception flows for each Use Case.
 
@@ -97,7 +97,7 @@ For each possible scenario there is a description at the beginning of the test i
 
 E.g:
 
-   /**
+  /**
 
      * Since the client service wants to list all account transactions
 
@@ -107,15 +107,15 @@ E.g:
 
      * Then a list of transactions should be returned
 
-     */
+     */ 
+     
 
-Unit Tests
+## Unit Tests
 
-* * * * *
 
 For each class in the software, a test class that verifies its unitary behavior.
 
-Unit tests are in /tests. And they follow the same structure as /src.
+Unit tests are in **/tests**. And they follow the same structure as **/src**.
 
 The classes are tested through PHPUnit and Mockery (this only for spy mocks).
 
@@ -125,11 +125,11 @@ In this way, support classes (Repository and Factory) were created, so these com
 
 This abstraction is important so that the tests are tested in the most real way possible.
 
-The Repositories and Factories are in /tests/Support.
+The Repositories and Factories are in **/tests/Support**.
 
-Integration Test
 
-* * * * *
+## Integration Test
+
 
 When opening a Use Case Open Account, the application consults an external service (Stats API) to obtain the user income that has a policy of parameterizing its interest rate.
 
@@ -141,4 +141,4 @@ In this way the application works as if it were consulting the real service and 
 
 Responses were mocked for each type of scenario so that the interest rate matches the income that the API provides.
 
-These scenarios are in OpenAccountFeatureTest.
+These scenarios are in **OpenAccountFeatureTest**.
